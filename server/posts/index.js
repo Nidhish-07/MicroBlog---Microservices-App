@@ -10,6 +10,7 @@ const posts = {}
 
 app.get('/posts', async (req, res) => {
     res.send(posts)
+
 })
 
 
