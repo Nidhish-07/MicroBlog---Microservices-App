@@ -4,20 +4,20 @@ import axios from 'axios'
 
 const CommentCreate = (props) => {
 
-  const [comment, setComment] = React.useState('');
+  const [content, setContent] = React.useState('');
 
   const submitHandler = async (event) => {
     event.preventDefault();
 
-    await axios.post('http://localhost:3000/posts/' + props.postId + '/comments', { comment })
-    setComment('')
+    await axios.post(`http://localhost:3000/posts/${props.postId}/comments`, { content })
+    setContent('')
   }
   return (
     <div>
       <form onSubmit={submitHandler}>
         <div>
-          <label htmlFor="comment" className='text-base font-medium'>New Comment: </label>
-          <input type="text" id='comment' value={comment} onChange={(e) => { setComment(e.target.value) }} />
+          <label htmlFor="content" className='text-base font-medium'>New content: </label>
+          <input type="text" id='content' value={content} onChange={(e) => { setContent(e.target.value) }} />
         </div>
         <button className='text-lg font-semibold bg-blue-500 text-white p-2 rounded-md'>Submit</button>
       </form>

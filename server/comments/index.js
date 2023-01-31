@@ -5,27 +5,34 @@ import cors from 'cors'
 
 const app = express()
 
-app.use(cors())
 
 app.use(express.json())
+app.use(cors())
 
 const commentsById = {}
 
 app.get('/posts/:id/comments', async (req, res) => {
     res.send(commentsById[req.params.id])
+
 })
 app.post('/posts/:id/comments', async (req, res) => {
-    const randomId = Math.random();
+
+    try {
+
+        const randomId = Math.random();
 
 
-    const { content } = req.body;
+        const { content } = req.body;
 
-    const comments = commentsById[req.params.id] || []
+        const comments = commentsById[req.params.id] || []
 
-    comments.push({ id: randomId, content })
-    commentsById[req.params.id] = comments
+        comments.push({ id: randomId, content })
+        commentsById[req.params.id] = comments
 
-    res.status(201).send(comments)
+        res.status(201).send(comments)
+    } catch (error) {
+        console.log(error);
+    }
 })
 
 app.listen(3000, () => {

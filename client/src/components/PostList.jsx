@@ -26,7 +26,7 @@ const PostList = () => {
 
   return (
     <div className='flex flex-wrap'>
-      {Object.values(posts).map(post => (<PostCard key={post.id} title={post.title} />))}
+      {Object.values(posts).map(post => (<PostCard key={post.id} title={post.title} id={post.id}/>))}
     </div>
   )
 }
