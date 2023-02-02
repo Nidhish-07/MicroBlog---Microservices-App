@@ -35,6 +35,6 @@ app.post('/posts/:id/comments', async (req, res) => {
     }
 })
 
-app.listen(3000, () => {
+app.listen(4001, () => {
     console.log("Server listening on http://localhost:3000");
 })
