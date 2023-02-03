@@ -9,7 +9,7 @@ const CommentCreate = (props) => {
   const submitHandler = async (event) => {
     event.preventDefault();
 
-    await axios.post(`http://localhost:3000/posts/${props.postId}/comments`, { content })
+    await axios.post(`http://localhost:4001/posts/${props.postId}/comments`, { content })
     setContent('')
   }
   return (

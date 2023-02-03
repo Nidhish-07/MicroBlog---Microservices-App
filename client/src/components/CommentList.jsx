@@ -7,7 +7,7 @@ const CommentList = (props) => {
 
 
   const fetchComments = async () => {
-    const res = await axios.get(`http://localhost:3000/posts/${props.postId}/comments`)
+    const res = await axios.get(`http://localhost:4001/posts/${props.postId}/comments`)
 
     const comments = res.data;
 
